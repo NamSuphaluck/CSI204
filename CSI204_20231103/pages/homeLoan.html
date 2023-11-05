@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>School of Information Technology</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div class="row" style="height: 670px; padding: 50px ">
+        <form class="was-validated">
+            <div>
+                <p>ชื่อผู้ที่สนใจขอสินเชื่อบ้าน</p>
+                <input id="txtName" type="text" class="form-control" placeholder="กรุณากรอกชื่อ" required />
+                <span class="invalid-feedback">กรุณากรอกชื่อ</span>
+                <span class="valid-feedback">ข้อมูลถูกต้อง</span>
+            </div>
+            <div>
+                <p>เงินเดือน</p>
+                <input id="txtSalary" type="number" class="form-control" required />
+                <span class="invalid-feedback">กรุณาเงินเดือน</span>
+            </div>
+            <div style="padding: 20px;">
+                <button type="button" onclick="calculateTotal();" class="btn btn-success">Submit</button>
+            </div>
+
+            <span>คุณ
+                <span id="lblName"></span>
+                ได้วงเงิน <span id="lblTotal">0</span> บาท
+            </span>
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    const calculateTotal = () => {
+
+        let loanName = ""
+        let loanSalary = 0;
+        let total = 0;
+        loanName = document.getElementById("txtName").value;
+        loanSalary = document.getElementById("txtSalary").value;
+        total = loanSalary * 200;
+        document.getElementById('lblName').innerText = loanName;
+        document.getElementById('lblTotal').innerText = total
+    }
+</script>

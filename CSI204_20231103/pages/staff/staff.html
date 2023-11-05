@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>School of Information Technology</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body onload="getData()">
+
+    <div class="row" style="height: 620px; background-color: #91007B;">
+        <div style="height: 300px; margin: 150px;">
+            <p style="color: white; font-size: 30px;">Welcome to SPU Loan Staff Page</p>
+            <p style="color: #A4EDFF; font-size: 50px; font-weight: bold;">เจ้าหน้าที่สามารถเลือกบริการได้ทันที</p>
+            <p style="color: white; font-size: 30px;">คลิกที่เมนูที่ต้องการได้เลย</p>
+            <p style="color: white; font-size: 30px;">มาทำงานกันเถอะ</p>
+            <p id="displayLogin" style="color: white; font-size: 30px;"></p>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    const getData = () => {
+        const stdNo = sessionStorage.getItem('stdNo');
+        const stdName = sessionStorage.getItem('stdName');
+        document.getElementById('displayLogin').innerText = stdNo + ' ' + stdName
+    }
+</script>

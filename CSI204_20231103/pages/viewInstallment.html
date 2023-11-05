@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>School of Information Technology</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div class="row" style="height: 670px; width:600px; padding: 50px;  ">
+        <form>
+            <div>
+                <p>รุ่นรถ</p>
+                <!-- <input type="radio" id="Volvo" name="car" value="Volvo" />
+                <label for="Volvo">Volvo</label><br /><br /> -->
+                <div id="disPlayBrand">
+
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <p>ราคา</p>
+                <input id="txtPrice" type="number" class="form-control" required />
+
+            </div>
+            <div style="padding: 20px;">
+                <button onclick="calculateInstallment()" type="button" class="btn btn-success">คำนวณอัตราชำระ</button>               
+                <div id="displayInstallment">
+
+                </div>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
+
+
+<script>
+    const brandCar = ["Volvo", "Toyota", "Honda", "BMW"];
+
+    const getCarList = () => {
+        const list = brandCar.map((v) => {
+            console.log(v)
+            let scriptHTML = '<input type = "radio" id = "' + v + '" name = "car" value="' + v + '" />'
+            scriptHTML = scriptHTML + '<label for="' + v + '">' + v + '</label><br /><br />'
+            return scriptHTML;
+        })
+
+        document.getElementById('disPlayBrand').innerHTML = list.join('');
+    }
+
+    getCarList();
+
+    // const calInstallment = () => {
+    //     const price = document.getElementById('txtPrice').value;
+    //     const calInstallmentPrice = Number(price) / 12;
+
+    //     for (let i = 0; i < 12; i++) {
+    //         let showInstall = '<p>' + "เดือนที่" + '' + (i + 1) + '' + 'จ่าย' + calInstallmentPrice + 'บาท</p>'
+    //         document.getElementById('displayInstallment').innerHTML = document.getElementById('displayInstallment').innerHTML + showInstall
+
+    //     }
+    // }
+
+    const calculateInstallment = () => {
+        const price = document.getElementById('txtPrice').value;
+        const calInstallmentPrice = Number(price) / 12;
+
+        let i = 0;
+        while (i < 12) {
+            let showInstall = '<p>' + "เดือนที่" + '' + (i + 1) + '' + 'จ่าย' + calInstallmentPrice + 'บาท</p>'
+            document.getElementById('displayInstallment').innerHTML = document.getElementById('displayInstallment').innerHTML + showInstall
+            i++
+        }
+
+    }
+    
+</script>

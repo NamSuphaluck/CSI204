@@ -16,12 +16,10 @@
                 <p>เข้าสู่ระบบ</p>
                 <div class="row">
                     <span class="col-md-6">
-                        <input id="txtName" type="text" class="form-control" placeholder="กรุณากรอกชื่อผู้ใช้"
-                            readonly />
+                        <input id="txtName" type="text" class="form-control" placeholder="กรุณากรอกชื่อผู้ใช้" />
                     </span>
                     <span class="col-md-6">
-                        <input id="txtPassword" type="text" class="form-control" placeholder="กรุณากรอกรหัสผ่าน"
-                            readonly />
+                        <input id="txtPassword" type="text" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" />
                     </span>
                 </div>
                 <div style="padding: 20px;">
@@ -37,15 +35,5 @@
 
 </html>
 <script>
-    const getData = () => {
-        const urlParam = new URLSearchParams(window.location.search);
-        const firstName = urlParam.get('Name');
-        document.getElementByLogin('txtName').value = firstName;
-        const lastName = urlParam.get('Password');
-        document.getElementByLogin('Password').value = lastName;
-
-        localStorage.setItem('Name', Name);
-        localStorage.setItem('Passwprd', Password);
-        
-    }  
+     
 </script>

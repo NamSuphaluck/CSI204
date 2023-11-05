@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>School of Information Technology</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+
+    <div class="row" style="height: 670px; width:600px; padding: 50px;  ">
+        <form>
+            <div>
+                <p>ชื่อผู้ที่สนใจขอสินเชื่อ</p>
+                <div class="row">
+                    <span class="col-md-6">
+                        <input id="txtFirstName" type="text" class="form-control" placeholder="กรุณากรอกชื่อ"
+                            required />
+                    </span>
+                    <span class="col-md-6">
+                        <input id="txtLastName" type="text" class="form-control" placeholder="กรุณากรอกนามสกุล"
+                            required />
+                    </span>
+                </div>
+
+            </div>
+            <div style="margin-top: 10px;">
+                <p>ที่อยู่</p>
+                <textarea id="txtAddress" class="form-control" rows="4" cols="50" required></textarea>
+
+            </div>
+            <div style="margin-top: 10px;">
+                <p>หมายเลขโทรศัพท์</p>
+                <input id="txtTel" type="text" class="form-control" required />
+
+            </div>
+            <div style="margin-top: 10px;">
+                <p>เงินเดือน</p>
+                <input id="txtSalary" type="number" class="form-control" required />
+
+            </div>
+            <div style="padding: 20px;">
+                <button onclick="sendData();" type="button" class="btn btn-success">ส่งข้อมูล</button>
+                <button onclick="saveData();" type="button" class="btn btn-success">เก็บค่าข้อมูล</button>
+                <button onclick="showData();" type="button" class="btn btn-success">แสดงคนที่ 2</button>
+            </div>
+
+            <input id="txtDisplayName" type="text" class="form-control" required />
+            <input id="txtDisplayLastName" type="text" class="form-control" required />
+            <input id="txtDisplayArray" type="text" class="form-control" required />
+        </form>
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    const sendData = () => {
+      
+        let register = {};
+        register["firstname"] = document.getElementById('txtFirstName').value;
+        register["lastname"] = document.getElementById('txtLastName').value;
+        register["address"] = document.getElementById('txtAddress').value;
+        register["tel"] = document.getElementById('txtTel').value;
+        register["salary"] = document.getElementById('txtSalary').value;
+
+        localStorage.setItem("register", register);
+        console.log(register);
+        document.getElementById('txtDisplayName').value = register["firstname"];
+        document.getElementById('txtDisplayLastName').value = register.lastname;
+
+        //Send to Another Page by HTTP GET Method.
+        //window.parent.location.href = './registerLoanPreView.html?firstName=' + firstName + '&lastName=' + lastName + '&address=' + address + '&tel=' + tel + '&salary=' + salary;
+    }
+
+    let registerName = [];
+    const saveData = () => {
+        
+        registerName.push(document.getElementById('txtFirstName').value);
+        console.log(registerName)
+    }
+
+    const showData = () => {
+        document.getElementById('txtDisplayArray').value = registerName[1];
+    }
+</script>
